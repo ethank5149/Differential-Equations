@@ -1,2 +1,2 @@
 # pyode
-Ordinary differential equation solving in python
+Ordinary differential equation solving in python and c/c++
