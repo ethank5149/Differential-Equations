@@ -37,6 +37,11 @@ class NDSolve:
             if isinstance(U0, int):
                 U0 = float(U0)           # avoid integer division
 
+        # Kept for resetting later
+        self.input_U0 = self.U0 = U0
+        self.input_f = f
+        self.input_t = domain
+
         self.U0 = U0
         self.f = lambda u, t: np.asarray(f(u, t))
         self.t = np.asarray(domain)
@@ -67,6 +72,10 @@ class NDSolve:
             self.n = n
             self.u[n+1] = self.step()
         return self.u, self.t
+
+    def reset(self):
+        self.__init__(self.input_f, self.input_U0, self.input_t, max_iter=self.max_iter, eps_iter=self.eps_iter,
+                      rtol=self.rtol, atol=self.atol, first_step=self.first_step, min_step=self.min_step, max_step=self.max_step)
 
     def ForwardEuler(self):
         """
