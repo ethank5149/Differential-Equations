@@ -128,3 +128,5 @@ Differential equation solving in Python and C/C++
     - Ornstein-Uhlenbeck process
     - Cox-Ingersoll-Ross model
     - Vidale-Wolfe advertising model
+
+    $\Sigma$than Knox
